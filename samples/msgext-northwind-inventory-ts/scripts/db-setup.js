@@ -97,8 +97,8 @@ const path = require("path");
             console.log(`Added entity to ${table} with key ${rowKey}`);
 
             // If we're on a table that needs an image and one wasn't in the JSON, make a random one
-            if (generateImage[index] && !("ImageURL" in entity)) {
-                entity["ImageUrl"] = `https://picsum.photos/seed/${rowKey}/200/300`;
+            if (generateImage[index]) {
+                entity["ImageUrl"] ??= `https://picsum.photos/seed/${rowKey}/200/300`;
             }
             // If we're on a table that needs a flag image, make it here
             if (generateFlag[index]) {
